@@ -14,7 +14,7 @@ namespace SpaceBatle.UI
         [SerializeField] private TMP_Text WeaponsText;
         [SerializeField] private TMP_Text ModulesText;        
         [SerializeField] private SelectSlotButton selectSlotButtonPrefab;
-        [SerializeField] private SelectItemMenu selectMenu;
+        [SerializeField] private SelectItemMenu selectMenu;        
 
         private void Start()
         {
@@ -46,6 +46,12 @@ namespace SpaceBatle.UI
             ModulesText.text = $"Modules: {currentInfo.ModuleSlot}";            
         }
 
+        public void OnStartBatleButton()
+        {
+            ship.StartBatle();
+        }
+             
+
         /// <summary>
         /// ¬ыбрали слот дл€ установки модул€ или оружи€
         /// </summary>
@@ -57,7 +63,6 @@ namespace SpaceBatle.UI
 
         private void OnModSelect(AModule module, int idSlot)
         {
-            Debug.Log($"Slot selected: {idSlot} => {module.Name}");
             ship.AddModule(module, idSlot);
         }
     }
